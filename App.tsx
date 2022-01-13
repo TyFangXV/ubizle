@@ -1,16 +1,20 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text} from 'react-native';
 import Nav from './src/components/nav';
 import HomeStack from './src/routes/homestack'
 import navStyles from './src/styles/nav';
+import { createNavigationContainerRef, NavigationContainer } from '@react-navigation/native';
+
+const navigationRef = createNavigationContainerRef()
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <HomeStack/>
-      <View style={navStyles.navContainer}>
-          <Nav/>        
+    <NavigationContainer>
+      <View style={styles.container}>
+        <HomeStack/>    
+        <Nav/>    
       </View>
-    </View>
+    </NavigationContainer>
   );
 }
 

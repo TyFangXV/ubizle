@@ -2,6 +2,8 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from '../page/home'
 import DownloadScreen from '../page/download'
 import {createAppContainer} from 'react-navigation';
+import React from "react";
+
 
 
 const HomeStack = createStackNavigator({

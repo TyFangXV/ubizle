@@ -1,22 +1,25 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 import styles from '../styles/nav';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+
+ type RootStackParamList = {
+  Downloader: {id : string};
+};
 
 
-
-const Nav = ({navigation}:any) => {
-
-
-  const moveToDownload = () => {
-    navigation.navigate("Downloader")
-  }
+const Nav = () => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   return (
     <View style={styles.nav}>
-      <TouchableOpacity onPress={moveToDownload}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Downloader', {id: '1'});
+        }}
+      >
         <Ionicons name="md-download" size={32} color="black" />
       </TouchableOpacity>
       <TouchableOpacity>
