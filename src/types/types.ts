@@ -1,4 +1,4 @@
-export type RootStackParamList = {
-    Main: undefined;
-    Downloader: undefined;
+export type HomeParamList = {
+    Home : undefined,
+    Download : undefined
 }

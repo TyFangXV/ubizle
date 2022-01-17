@@ -3,26 +3,15 @@ import { View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../styles/nav';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useNavigation } from '@react-navigation/native';
+import { HomeParamList } from '../types/types';
 
- type RootStackParamList = {
-  Downloader: {id : string};
-};
-
-
-const Nav = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
+const Nav = ({ navigation }:{navigation : StackNavigationProp<HomeParamList, 'Download'>}) => {
   return (
     <View style={styles.nav}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Downloader', {id: '1'});
-        }}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate('Download')}>
         <Ionicons name="md-download" size={32} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=> navigation.navigate("Home")}>
         <Ionicons name="md-home" size={32} color="black" />
       </TouchableOpacity>
       <TouchableOpacity>
